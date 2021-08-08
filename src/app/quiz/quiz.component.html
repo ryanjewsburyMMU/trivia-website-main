@@ -298,6 +298,10 @@
   .example-radio-button {
     margin: 5px;
   }
+
+  .incorrectAnswers{
+    text-align: center;
+  }
   
     /* Responsive Styles */
     @media screen and (max-width: 767px) {
@@ -351,6 +355,9 @@
           <mat-card-title>{{item.question}}</mat-card-title>
           <mat-card-subtitle>{{item.category}}</mat-card-subtitle>
         </mat-card-header>
+        <div class="incorrectAnswers" *ngFor="let tempItem of item.incorrect_answers">
+          <p>> {{tempItem}}</p>
+        </div>
         <div *ngIf="show_answer">
         <mat-card-content>
           {{item.correct_answer}}
@@ -364,7 +371,7 @@
   </div>
 
   <div class="card-container">
-    <a class="card" target="_blank" rel="noopener" (click)="endQuiz()">
+    <a class="card" target="_blank" rel="noopener">
       <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/></svg>
       <span>End Quiz!</span>
       <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>    </a>

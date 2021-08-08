@@ -48,15 +48,40 @@ export class QuizComponent implements OnInit {
   }
 
   startQuiz(){
-
-    // this.url = this.url.replaceAll("&", "'")
-
-    // this.url = this.url.replaceAll("&quot", "")
-
-    // this.url = this.url.replaceAll("&quot;", "'")
     var obj = JSON.parse(this.url.replace("&#039;", "'").replace("&quot", "'").replace("&quot;", "'"));
     this.questionData = obj.results
-    console.log(obj.results)
+    // Loop through all the data 
+
+    for (var item in this.questionData) {
+      var count = 0
+
+      if (this.questionData.hasOwnProperty(item)) {
+        var insertIn = getRandomNumberBetween(1,4)
+        for (var newitme in this.questionData[item].incorrect_answers){
+          console.log(count += 1)
+          if (count = insertIn)
+          {
+            console.log("INSERTING IN HERE....")
+          }
+          console.log(this.questionData[item].incorrect_answers[newitme])
+        }
+    }
+  }
+
+
+
+  function getRandomNumberBetween(min: number,max: number){
+    return Math.floor(Math.random()*(max-min+1)+min);
+}
+
+    
+
+
+
+    // Append the correct answer randomly inside the incorrect answers 
+
+    // Get done son 
+    
   }
 
   showAnswer(){
